@@ -301,6 +301,8 @@ button:hover {
     position: relative;
     z-index: 2;
     /* Keeps content above the overlay */
+    overflow-y: hidden;
+    /* Disable vertical scrolling */
 }
 
 /* Additional dark overlay below paragraph and button */
@@ -509,6 +511,8 @@ video {
     flex-wrap: wrap;
     gap: 20px;
     /* Space between cards */
+    overflow-y: hidden;
+    /* Disable vertical scrolling */
 }
 
 .book-card {
@@ -852,6 +856,7 @@ video {
     margin-top: 2em;
 }
 
+
 .footer-content {
     display: flex;
     flex-direction: column;
@@ -877,8 +882,10 @@ video {
 
 /* Update this section to use flexbox for a horizontal layout */
 .footer-socials {
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Center align the socials */
+    display: flex;
+    /* Use flexbox */
+    justify-content: center;
+    /* Center align the socials */
     margin-bottom: 1em;
 }
 
@@ -900,6 +907,17 @@ video {
     color: #c7c7c7;
     font-size: 0.9rem;
 }
+
+.footer-socials-wrapper {
+    overflow-y: hidden; /* Disable vertical scrolling */
+    overflow-x: hidden; /* Optional: Disable horizontal scrolling too */
+    display: flex;      /* Maintain flex layout for alignment */
+    justify-content: center; /* Center the social icons */
+    width: 100%;       /* Ensure it takes full width */
+    height: 50px;      /* Set a fixed height to prevent scrolling */
+}
+
+
 
 
 
@@ -943,19 +961,26 @@ video {
 /* Additional Media Queries for Responsiveness */
 @media (max-width: 420px) {
     .newsletter-form {
-        flex-direction: column; /* Stack vertically */
-        align-items: center; /* Center align */
+        flex-direction: column;
+        /* Stack vertically */
+        align-items: center;
+        /* Center align */
     }
 
     .newsletter-form input {
-        width: 100%; /* Full width */
-        margin-bottom: 10px; /* Space below input */
+        width: 100%;
+        /* Full width */
+        margin-bottom: 10px;
+        /* Space below input */
     }
 
     .newsletter-form button {
-        display: inline-block; /* Ensure button is displayed */
-        opacity: 1; /* Fully visible */
-        width: auto; /* Adjust width if necessary */
+        display: inline-block;
+        /* Ensure button is displayed */
+        opacity: 1;
+        /* Fully visible */
+        width: auto;
+        /* Adjust width if necessary */
     }
 }
 
