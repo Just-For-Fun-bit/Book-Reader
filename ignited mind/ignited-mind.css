@@ -1,84 +1,358 @@
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+    /* Body font */
     background: linear-gradient(135deg, #1c1f24 30%, #2b2f3a 100%);
     color: #e0e0e0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    /* Stack children vertically */
     min-height: 100vh;
-    padding: 1em; /* Add padding to prevent content from touching edges */
-    overflow-x: hidden; /* Disable horizontal scrolling */
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Optional shadow for depth */
+    /* Full height of viewport */
+    padding: 1.4em;
+    /* Prevent content from touching edges */
+    overflow-x: hidden;
+    /* Disable horizontal scrolling */
+    align-items: flex-start;
+    /* Align items to the start for better layout */
 }
-
-
-.container {
+header {
     width: 90%; /* Use 90% of the viewport width */
     max-width: 1200px; /* Maximum width for larger screens */
     min-width: 320px; /* Minimum width for very small screens */
     background: #2b2f3a; /* Dark background */
     border-radius: 20px; /* Rounded corners */
-    box-shadow: 
+    box-shadow:
         8px 8px 25px rgba(0, 0, 0, 0.7), /* Dark shadow */
         -8px -8px 25px rgba(255, 255, 255, 0.1); /* Light shadow */
-    padding: 2em; /* Padding around the content */
+    padding: 2.5em 2em; /* Reduced padding */
     transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition effects */
-    margin: 2em auto; /* Center the container with margin */
+    margin: auto auto; /* Reduced margin */
     overflow: hidden; /* Prevent overflow for a cleaner look */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.book-lovers {
+    font-size: 2.5rem; /* Base font size */
+    color: #e2e2e2; /* Light gray for readability */
+    text-shadow: 
+        0 0 10px rgba(0, 115, 255, 0.5), /* Subtle glow */
+        1px 1px 5px rgba(0, 0, 0, 0.5); /* Depth shadow */
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease, background 0.3s ease; /* Smooth transitions */
+    padding: 0.5em 1em; /* Padding for a better touch area */
+    border-radius: 10px; /* Rounded corners */
+    background: linear-gradient(90deg, rgba(59, 77, 104, 0.8), rgba(0, 0, 0, 0.5)); /* Base gradient background */
+    display: inline-block; /* Make background fit text */
+}
+
+/* Hover Effect */
+.book-lovers:hover {
+    color: #ffffff; /* Change text color on hover */
+    transform: translateY(-3px) scale(1.05); /* Smooth lift effect */
+    text-shadow: 
+        0 0 20px rgba(0, 115, 255, 0.8), /* Bright glow */
+        1px 1px 10px rgba(0, 0, 0, 0.7); /* Deeper shadow for depth */
+    background: linear-gradient(90deg, rgba(0, 115, 255, 0.8), rgba(59, 77, 104, 0.8)); /* Brighter gradient on hover */
+    animation: smoothBounce 0.4s ease forwards; /* Bounce effect */
+}
+
+/* Keyframes for Smooth Bounce Animation */
+@keyframes smoothBounce {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.05); }
+    100% { transform: translateY(0) scale(1.03); }
+}
+
+/* Active State Feedback */
+.book-lovers:active {
+    transform: translateY(2px) scale(0.98); /* Slightly compress on click */
+    text-shadow: 
+        0 0 15px rgba(0, 115, 255, 0.6), /* Slight glow during active state */
+        1px 1px 7px rgba(0, 0, 0, 0.6); /* Dim shadow on active */
+}
+
+
+
+
+
+.breadcrumb-container {
+    width: 100%;
+    /* Full width for the breadcrumb */
+    margin-top: 1em;
+    /* Space above the breadcrumb */
+    padding: 1em;
+    /* Padding for better touch target on smaller screens */
+    background: rgba(43, 47, 58, 0.8);
+    /* Semi-transparent dark background */
+    border-radius: 15px;
+    /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    /* Shadow for depth */
+    display: flex;
+    /* Flexbox for centering */
+    justify-content: center;
+    /* Center content */
+    position: fixed;
+    /* Fix position to stay at the top */
+    top: 0;
+    /* Align to the top of the viewport */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Adjust positioning */
+    z-index: 1000;
+    /* Ensure it stays above other content */
+}
+
+.breadcrumb {
+    list-style: none;
+    /* Remove default list styling */
+    padding: 0;
+    /* Remove default padding */
+    margin: 0;
+    /* Remove default margin */
+    display: flex;
+    /* Use flexbox for breadcrumb items */
+    justify-content: center;
+    /* Center breadcrumb items */
+    flex-wrap: wrap;
+    /* Allow items to wrap on smaller screens */
+}
+
+/* Other styles remain the same */
+
+
+.breadcrumb li {
+    margin: 0 0.5em;
+    /* Space between breadcrumb items */
+    position: relative;
+    /* For pseudo-elements */
+}
+
+.breadcrumb-link {
+    text-decoration: none;
+    /* Remove underline from links */
+    color: #e0e0e0;
+    /* Default text color */
+    transition: color 0.3s ease, transform 0.3s ease;
+    /* Smooth transitions */
+    font-size: 1rem;
+    /* Base font size */
+    position: relative;
+    /* For pseudo-elements */
+}
+
+.breadcrumb-link:hover {
+    color: #00bcd4;
+    /* Change color on hover */
+    transform: translateY(-2px);
+    /* Slight lift effect */
+}
+
+.breadcrumb-link:hover::after {
+    width: 100%;
+    /* Extend the line on hover */
+    background: #00bcd4;
+    /* Line color on hover */
+}
+
+.breadcrumb-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    /* Default line color */
+    transition: width 0.3s ease;
+    /* Smooth width transition */
+    position: absolute;
+    bottom: -4px;
+    /* Positioning the line */
+    left: 0;
+    /* Align to the left */
+}
+
+.current-page {
+    color: #00bcd4;
+    /* Different color for the current page */
+    font-weight: bold;
+    /* Emphasize the current page */
+}
+
+@media (max-width: 480px) {
+    .breadcrumb-link {
+        font-size: 0.9rem;
+        /* Reduce font size for smaller screens */
+    }
+
+    .breadcrumb-container {
+        padding: 0.5em;
+        /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 320px) {
+    .breadcrumb-link {
+        font-size: 0.8rem;
+        /* Further reduce font size for very small screens */
+    }
+
+    .breadcrumb li {
+        margin: 0 0.3em;
+        /* Reduce spacing between items */
+    }
+}
+
+
+
+
+
+
+.container {
+    width: 90%;
+    /* Use 90% of the viewport width */
+    max-width: 1200px;
+    /* Maximum width for larger screens */
+    min-width: 320px;
+    /* Minimum width for very small screens */
+    background: #2b2f3a;
+    /* Dark background */
+    border-radius: 20px;
+    /* Rounded corners */
+    box-shadow:
+        8px 8px 25px rgba(0, 0, 0, 0.7),
+        /* Dark shadow */
+        -8px -8px 25px rgba(255, 255, 255, 0.1);
+    /* Light shadow */
+    padding: 2em;
+    /* Padding around the content */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Smooth transition effects */
+    margin: 2em auto;
+    /* Center the container with margin */
+    overflow: hidden;
+    /* Prevent overflow for a cleaner look */
 }
 
 .main-title {
-    font-size: 3rem; /* Large font size for emphasis */
-    font-weight: bold; /* Bold for prominence */
-    color: #e2e2e2; /* Soft light gray for readability */
-    text-align: center; /* Center alignment */
-    margin: 1.5em 0; /* Space above and below the heading */
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4), /* Soft shadow for depth */
-                 0 0 15px rgba(0, 115, 255, 0.6); /* Slight glow effect */
-    letter-spacing: 2px; /* Increased spacing between letters for a modern look */
-    text-transform: uppercase; /* Uppercase for impact */
-    padding: 0.5em; /* Padding for breathing room */
-    background-color: #3b4d68; /* Darker, muted background color for contrast */
-    border-radius: 10px; /* Rounded corners */
-    display: inline-block; /* Make the background fit the text */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+    font-size: 3rem;
+    /* Large font size for emphasis */
+    font-weight: bold;
+    /* Bold for prominence */
+    color: #e2e2e2;
+    /* Soft light gray for readability */
+    text-align: center;
+    /* Center alignment */
+    margin: 1.5em 0;
+    /* Space above and below the heading */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4),
+        /* Soft shadow for depth */
+        0 0 15px rgba(0, 115, 255, 0.6);
+    /* Slight glow effect */
+    letter-spacing: 2px;
+    /* Increased spacing between letters for a modern look */
+    text-transform: uppercase;
+    /* Uppercase for impact */
+    padding: 0.5em;
+    /* Padding for breathing room */
+    background-color: #3b4d68;
+    /* Darker, muted background color for contrast */
+    border-radius: 10px;
+    /* Rounded corners */
+    display: inline-block;
+    /* Make the background fit the text */
+    transition: color 0.3s ease, transform 0.3s ease;
+    /* Smooth transition effects */
+    word-wrap: break-word;
+    /* Allow breaking of words to prevent overflow */
+    overflow-wrap: break-word;
+    /* For more consistent wrapping */
 }
 
+/* Responsive font size adjustments */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+        /* Adjust font size for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+        /* Adjust font size for mobile devices */
+        padding: 0.4em;
+        /* Slightly reduce padding on mobile */
+    }
+}
+
+@media (max-width: 320px) {
+    .main-title {
+        font-size: 1.8rem;
+        /* Further adjust font size for smaller screens */
+        padding: 0.3em;
+        /* Further reduce padding */
+    }
+}
+
+
 .main-title:hover {
-    color: #ffffff; /* Change to white on hover for emphasis */
-    transform: scale(1.05); /* Slightly increase size on hover */
+    color: #ffffff;
+    /* Change to white on hover for emphasis */
+    transform: scale(1.05);
+    /* Slightly increase size on hover */
 }
 
 
 h2 {
-    font-size: calc(1.2rem + 0.8vw); /* Responsive font size for h2 */
-    color: #e0e0e0; /* Color for h2 to keep a soft contrast */
+    font-size: calc(1.2rem + 0.8vw);
+    /* Responsive font size for h2 */
+    color: #e0e0e0;
+    /* Color for h2 to keep a soft contrast */
 }
 
 .author-name {
-    color: #f0f0f0; /* Soft light gray for better readability */
-    font-size: 1.8rem; /* Size of the text */
-    font-weight: bold; /* Bold text for emphasis */
-    text-align: center; /* Center alignment */
-    text-transform: uppercase; /* Uppercase for impactful appearance */
-    padding: 0.5em; /* Padding for breathing room */
-    margin-top: 1.5em; /* Space above the name */
-    background-color: #4a6d9e; /* Soft blue background color */
-    border-radius: 10px; /* Slightly rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    display: inline-block; /* Ensures the background fits the text */
+    color: #f0f0f0;
+    /* Soft light gray for better readability */
+    font-size: 1.8rem;
+    /* Size of the text */
+    font-weight: bold;
+    /* Bold text for emphasis */
+    text-align: center;
+    /* Center alignment */
+    text-transform: uppercase;
+    /* Uppercase for impactful appearance */
+    padding: 0.5em;
+    /* Padding for breathing room */
+    margin-top: 1.5em;
+    /* Space above the name */
+    background-color: #4a6d9e;
+    /* Soft blue background color */
+    border-radius: 10px;
+    /* Slightly rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+    display: inline-block;
+    /* Ensures the background fits the text */
 }
 
 /* Adding a small "Author" label above */
 .author-name::before {
     content: 'Author';
-    display: block; /* Makes it appear as a block element */
-    font-size: 0.8rem; /* Smaller font size */
-    color: #d3d3d3; /* Light gray for contrast */
-    text-align: center; /* Center alignment for the label */
-    margin-bottom: 0.3em; /* Space below the label */
-    font-weight: bold; /* Bold label for emphasis */
+    display: block;
+    /* Makes it appear as a block element */
+    font-size: 0.8rem;
+    /* Smaller font size */
+    color: #d3d3d3;
+    /* Light gray for contrast */
+    text-align: center;
+    /* Center alignment for the label */
+    margin-bottom: 0.3em;
+    /* Space below the label */
+    font-weight: bold;
+    /* Bold label for emphasis */
 }
 
 
@@ -86,7 +360,8 @@ h2 {
 /* Decorative underline effect */
 .author-name::after {
     content: ' — Author';
-    color: #f1f1f1; /* A lighter color for the label */
+    color: #f1f1f1;
+    /* A lighter color for the label */
     font-size: 0.8rem;
     font-weight: normal;
     margin-left: 0.2em;
@@ -94,7 +369,8 @@ h2 {
 }
 
 .author-name:hover::after {
-    color: #d1d1d1; /* Subtle color change on hover */
+    color: #d1d1d1;
+    /* Subtle color change on hover */
 }
 
 /* Divider styling */
@@ -105,163 +381,250 @@ h2 {
     margin: 2.5em 0;
     position: relative;
     height: 1px;
-    background: linear-gradient(90deg, #333, #666, #333); /* Subtle gradient line */
+    background: linear-gradient(90deg, #333, #666, #333);
+    /* Subtle gradient line */
 }
 
 .divider-icon {
     position: absolute;
-    top: -0.9rem; /* Adjusts icon position slightly above the line */
+    top: -0.9rem;
+    /* Adjusts icon position slightly above the line */
     font-size: 1.2rem;
-    color: #a5a5ea; /* Soft muted color for the icon */
-    background: #1c1f24; /* Matches the page background for a 'cut-out' look */
+    color: #a5a5ea;
+    /* Soft muted color for the icon */
+    background: #1c1f24;
+    /* Matches the page background for a 'cut-out' look */
     padding: 0 0.3em;
-    border-radius: 50%; /* Rounded icon background */
+    border-radius: 50%;
+    /* Rounded icon background */
     transform: scale(1);
-    transition: transform 0.2s ease, color 0.2s ease; /* Simple hover effect */
+    transition: transform 0.2s ease, color 0.2s ease;
+    /* Simple hover effect */
 }
 
 .divider-icon:hover {
-    color: #d4b5ff; /* Lighter color on hover */
-    transform: scale(1.1); /* Slight scale-up for interaction */
+    color: #d4b5ff;
+    /* Lighter color on hover */
+    transform: scale(1.1);
+    /* Slight scale-up for interaction */
 }
 
 
 
 p,
 li {
-    font-size: calc(1rem + 0.2vw); /* Responsive font size for paragraphs and list items */
-    color: #d3d3d3; /* Light color for readability */
+    font-size: calc(1rem + 0.2vw);
+    /* Responsive font size for paragraphs and list items */
+    color: #d3d3d3;
+    /* Light color for readability */
 }
 
 /* Refined hover effect for .container */
 .container:hover {
-    transform: scale(1.01); /* Retaining minimal scale on larger screens */
+    transform: scale(1.01);
+    /* Retaining minimal scale on larger screens */
     /* Box-shadow is entirely removed to prioritize text clarity */
 }
 
 
 .summary {
-    text-align: center; /* Centered text for better presentation */
-    margin-bottom: 2em; /* Space below the summary section */
-    margin: 0 auto; /* Center the summary */
-    padding: 2em; /* Add padding for breathing room */
-    background-color: #1d2026; /* Dark background for contrast */
-    border-radius: 12px; /* Rounded corners for a softer look */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-    max-width: 90vw; /* Limit width to 90% of the viewport width */
-    transition: background-color 0.3s ease; /* Transition for background color */
+    text-align: center;
+    /* Centered text for better presentation */
+    margin-bottom: 2em;
+    /* Space below the summary section */
+    margin: 0 auto;
+    /* Center the summary */
+    padding: 2em;
+    /* Add padding for breathing room */
+    background-color: #1d2026;
+    /* Dark background for contrast */
+    border-radius: 12px;
+    /* Rounded corners for a softer look */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow for depth */
+    max-width: 90vw;
+    /* Limit width to 90% of the viewport width */
+    transition: background-color 0.3s ease;
+    /* Transition for background color */
 }
 
 .summary:hover {
-    background-color: #121213eb; /* Slightly lighter background on hover for a subtle effect */
+    background-color: #121213eb;
+    /* Slightly lighter background on hover for a subtle effect */
 }
 
 .summary .quote {
-    font-style: italic; /* Italics for quotes */
-    color: #c7c7c7; /* Color for quotes */
-    margin: 1.5em 0; /* Space above and below */
-    padding: 1em; /* Padding for quotes */
-    border-left: 4px solid #444b53; /* Decorative border */
-    background: rgba(255, 255, 255, 0.05); /* Light background for quotes */
-    border-radius: 8px; /* Rounded corners for quotes */
+    font-style: italic;
+    /* Italics for quotes */
+    color: #c7c7c7;
+    /* Color for quotes */
+    margin: 1.5em 0;
+    /* Space above and below */
+    padding: 1em;
+    /* Padding for quotes */
+    border-left: 4px solid #444b53;
+    /* Decorative border */
+    background: rgba(255, 255, 255, 0.05);
+    /* Light background for quotes */
+    border-radius: 8px;
+    /* Rounded corners for quotes */
 }
 
 .summary h1 {
-    font-size: 2.5rem; /* Large font size for the title */
-    margin-bottom: 1em; /* Spacing below the title */
-    color: #fff; /* White color for better contrast */
+    font-size: 2.5rem;
+    /* Large font size for the title */
+    margin-bottom: 1em;
+    /* Spacing below the title */
+    color: #fff;
+    /* White color for better contrast */
 }
 
 .summary .description {
-    font-size: 1.1rem; /* Slightly larger font for readability */
-    margin: 0 auto; /* Center the text */
-    max-width: 600px; /* Limit width for better readability */
-    line-height: 1.6; /* Increased line height for better spacing */
-    color: #d3d3d3; /* Lighter color for text */
-    text-align: justify; /* Justified text for a cleaner look */
-    padding: 0.5em; /* Padding around the text */
-    background: rgba(0, 0, 0, 0.2); /* Subtle background for the description */
-    border-radius: 8px; /* Rounded corners for the description */
+    font-size: 1.1rem;
+    /* Slightly larger font for readability */
+    margin: 0 auto;
+    /* Center the text */
+    max-width: 600px;
+    /* Limit width for better readability */
+    line-height: 1.6;
+    /* Increased line height for better spacing */
+    color: #d3d3d3;
+    /* Lighter color for text */
+    text-align: justify;
+    /* Justified text for a cleaner look */
+    padding: 0.5em;
+    /* Padding around the text */
+    background: rgba(0, 0, 0, 0.2);
+    /* Subtle background for the description */
+    border-radius: 8px;
+    /* Rounded corners for the description */
 }
 
 .summary p {
-    margin: 0; /* Remove default margins */
-    padding: 0; /* Remove default padding */
+    margin: 0;
+    /* Remove default margins */
+    padding: 0;
+    /* Remove default padding */
 }
 
 .summary ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding from lists */
-    text-align: left; /* Align text to the left */
+    list-style-type: none;
+    /* Remove bullet points */
+    padding: 0;
+    /* Remove padding from lists */
+    text-align: left;
+    /* Align text to the left */
 }
 
 .summary ul li {
-    background: rgba(255, 255, 255, 0.1); /* Light background for list items */
-    border-radius: 8px; /* Rounded corners for list items */
-    margin: 0.5em 0; /* Space between list items */
-    padding: 1em; /* Padding inside list items */
+    background: rgba(255, 255, 255, 0.1);
+    /* Light background for list items */
+    border-radius: 8px;
+    /* Rounded corners for list items */
+    margin: 0.5em 0;
+    /* Space between list items */
+    padding: 1em;
+    /* Padding inside list items */
 }
 
 .summary ul li strong {
-    color: #e1e1e1; /* Color for strong text */
+    color: #e1e1e1;
+    /* Color for strong text */
 }
 
 .summary ul li ul {
-    margin-left: 1.5em; /* Indent sublists */
+    margin-left: 1.5em;
+    /* Indent sublists */
 }
 
 .summary ul li ul li {
-    background: rgba(255, 255, 255, 0.05); /* Darker background for sublist items */
+    background: rgba(255, 255, 255, 0.05);
+    /* Darker background for sublist items */
 }
 
 #conclusion-vision {
-    font-size: 1.1rem; /* Font size for vision */
-    color: #e0e0e0; /* Light color for contrast */
-    margin: 1em 0; /* Space above and below */
-    line-height: 1.5; /* Line height for readability */
-    background: rgba(0, 0, 0, 0.3); /* Background for emphasis */
-    padding: 1em; /* Padding for aesthetics */
-    border-radius: 8px; /* Rounded corners */
+    font-size: 1.1rem;
+    /* Font size for vision */
+    color: #e0e0e0;
+    /* Light color for contrast */
+    margin: 1em 0;
+    /* Space above and below */
+    line-height: 1.5;
+    /* Line height for readability */
+    background: rgba(0, 0, 0, 0.3);
+    /* Background for emphasis */
+    padding: 1em;
+    /* Padding for aesthetics */
+    border-radius: 8px;
+    /* Rounded corners */
 }
 
 #conclusion-transformation {
-    font-size: 1.1rem; /* Consistent font size */
-    color: #a0c0d0; /* Different color for contrast */
-    margin: 1em 0; /* Space above and below */
-    line-height: 1.5; /* Line height for readability */
-    background: rgba(0, 0, 0, 0.4); /* Slightly darker background */
-    padding: 1em; /* Padding for aesthetics */
-    border-radius: 8px; /* Rounded corners */
+    font-size: 1.1rem;
+    /* Consistent font size */
+    color: #a0c0d0;
+    /* Different color for contrast */
+    margin: 1em 0;
+    /* Space above and below */
+    line-height: 1.5;
+    /* Line height for readability */
+    background: rgba(0, 0, 0, 0.4);
+    /* Slightly darker background */
+    padding: 1em;
+    /* Padding for aesthetics */
+    border-radius: 8px;
+    /* Rounded corners */
 }
 
 #conclusion-message {
-    font-size: 1.1rem; /* Consistent font size */
-    color: #d0e0d0; /* Another color variation */
-    margin: 1em 0; /* Space above and below */
-    line-height: 1.5; /* Line height for readability */
-    background: rgba(0, 0, 0, 0.5); /* Darker background */
-    padding: 1em; /* Padding for aesthetics */
-    border-radius: 8px; /* Rounded corners */
+    font-size: 1.1rem;
+    /* Consistent font size */
+    color: #d0e0d0;
+    /* Another color variation */
+    margin: 1em 0;
+    /* Space above and below */
+    line-height: 1.5;
+    /* Line height for readability */
+    background: rgba(0, 0, 0, 0.5);
+    /* Darker background */
+    padding: 1em;
+    /* Padding for aesthetics */
+    border-radius: 8px;
+    /* Rounded corners */
 }
 
 #conclusion-summary {
-    font-size: 1.1rem; /* Consistent font size */
-    color: #e0c0b0; /* Different color */
-    margin: 1em 0; /* Space above and below */
-    line-height: 1.5; /* Line height for readability */
-    background: rgba(0, 0, 0, 0.4); /* Background for emphasis */
-    padding: 1em; /* Padding for aesthetics */
-    border-radius: 8px; /* Rounded corners */
+    font-size: 1.1rem;
+    /* Consistent font size */
+    color: #e0c0b0;
+    /* Different color */
+    margin: 1em 0;
+    /* Space above and below */
+    line-height: 1.5;
+    /* Line height for readability */
+    background: rgba(0, 0, 0, 0.4);
+    /* Background for emphasis */
+    padding: 1em;
+    /* Padding for aesthetics */
+    border-radius: 8px;
+    /* Rounded corners */
 }
 
 #conclusion-potential {
-    font-size: 1.1rem; /* Consistent font size */
-    color: #c0b0e0; /* Another color variation */
-    margin: 1em 0; /* Space above and below */
-    line-height: 1.5; /* Line height for readability */
-    background: rgba(0, 0, 0, 0.3); /* Background for emphasis */
-    padding: 1em; /* Padding for aesthetics */
-    border-radius: 8px; /* Rounded corners */
+    font-size: 1.1rem;
+    /* Consistent font size */
+    color: #c0b0e0;
+    /* Another color variation */
+    margin: 1em 0;
+    /* Space above and below */
+    line-height: 1.5;
+    /* Line height for readability */
+    background: rgba(0, 0, 0, 0.3);
+    /* Background for emphasis */
+    padding: 1em;
+    /* Padding for aesthetics */
+    border-radius: 8px;
+    /* Rounded corners */
 }
 
 
@@ -481,6 +844,7 @@ li {
 }
 
 .container:hover {
-    transform: scale(1.01); /* Retaining minimal scale on larger screens */
+    transform: scale(1.01);
+    /* Retaining minimal scale on larger screens */
     /* Box-shadow is entirely removed to prioritize text clarity */
 }
