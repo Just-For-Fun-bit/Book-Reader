@@ -1,3 +1,10 @@
+:root {
+    --primary-bg: #2b2f3a;
+    --secondary-bg: #323743;
+    --text-color: #e0e0e0;
+    /* ... other variables ... */
+}
+
 /* Base Styles for All Devices */
 * {
     box-sizing: border-box;
@@ -70,14 +77,9 @@ h3 {
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
-    color: 333;
+    color: #e0e0e0;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
-
-nav {
-    position: relative;
-}
-
 
 /* Navigation */
 .desktop-nav {
@@ -85,21 +87,82 @@ nav {
     /* Show desktop nav by default */
 }
 
+.desktop-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
+.desktop-nav li {
+    margin: 0 8px;
+    position: relative;
+}
 
+.desktop-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: var(--primary-bg);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -2px -2px 5px rgba(255, 255, 255, 0.05);
+    display: inline-block;
+}
+
+/* Hover effect */
+.desktop-nav a:hover {
+    color: #fff;
+    background: linear-gradient(145deg, var(--primary-bg), var(--secondary-bg));
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2), inset -1px -1px 3px rgba(255, 255, 255, 0.05);
+}
+
+/* Active state */
+.desktop-nav a:active {
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(255, 255, 255, 0.05);
+    transform: translateY(1px);
+}
+
+/* Subtle glow effect on hover */
+.desktop-nav a:hover {
+    text-shadow: 0 0 5px rgba(255,255,255,0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .desktop-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .desktop-nav li {
+        margin: 5px 0;
+    }
+
+    .desktop-nav a {
+        width: 100%;
+        text-align: center;
+    }
+}
 
 /* Search Bar */
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
 .search-bar {
     padding: 8px;
     border-radius: 5px;
     border: none;
     outline: none;
-    width: 200px;
-    /* Fixed width for larger screens */
+    flex-grow: 1;
     background: #33383f;
     color: #c7c7c7;
     box-shadow: inset 5px 5px 10px #1c1f24, inset -5px -5px 10px #4a505d;
-    margin-right: 1em;
     transition: all 0.3s ease;
 }
 
@@ -108,8 +171,8 @@ nav {
     box-shadow: inset 5px 5px 10px #1c1f24, inset -5px -5px 20px #4a505d;
 }
 
-/* Login Button */
-.login-btn {
+/* Search Button */
+.search-btn {
     padding: 8px 15px;
     border: none;
     border-radius: 5px;
@@ -121,9 +184,27 @@ nav {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.login-btn:hover {
-    background-color: #555d67;
+.search-btn:hover {
     box-shadow: 5px 5px 20px #1c1f24, -5px -5px 20px #4a505d;
+}
+
+
+/* Clear Button */
+.clear-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4a505d;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px #1c1f24, -5px -5px 15px #4a505d;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clear-btn:hover {
+    background-color: #4a505d;
+    box-shadow: 5px 5px 15px #1c1f24, -5px -5px 15px #4a505d;
 }
 
 /* Header Right Section */
@@ -134,6 +215,7 @@ nav {
     /* Center align items */
     gap: 10px;
     /* Space between items */
+    width: 100%;
 }
 
 .section-divider {
@@ -202,10 +284,6 @@ nav {
     transform: scaleX(1.05);
     transition: all 0.4s ease;
 }
-
-
-
-
 
 /* Add a line divider after each section */
 section::after {
@@ -287,7 +365,6 @@ button:hover {
     z-index: 1;
     border-radius: 30px;
 }
-
 
 .hero-content {
     max-width: 600px;
@@ -446,6 +523,7 @@ button:hover {
     margin: 0;
     text-shadow: 2px 2px 8px #000;
     text-align: center;
+    word-wrap: break-word; /* Ensure text wraps within the card */
 }
 
 .category-card:hover {
@@ -570,7 +648,6 @@ video {
     /* Darken color on hover */
     box-shadow: 5px 5px 20px #1c1f24, -5px -5px 20px #4a505d;
 }
-
 .book-card:hover {
     transform: scale(1.05);
     /* Slightly enlarge on hover */
@@ -919,12 +996,6 @@ video {
     height: 50px;      /* Set a fixed height to prevent scrolling */
 }
 
-
-
-
-
-
-
 /* Responsive Design */
 
 /* Mobile-first adjustments for very small screens (320px) */
@@ -1102,6 +1173,31 @@ video {
         font-size: 1.6rem;
         /* Further reduce heading size */
     }
+
+    .header-right {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .search-bar-container {
+        display: flex;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-bar {
+        flex-grow: 1;
+        margin-right: 5px;
+    }
+
+    .clear-btn {
+        flex-shrink: 0;
+    }
+
+    .search-btn {
+        width: 100%;
+    }
 }
 
 /* For tablets */
@@ -1198,7 +1294,7 @@ video {
         /* Space below */
     }
 
-    .login-btn {
+    .search-btn {
         width: 100%;
         /* Full width button */
     }
@@ -1262,7 +1358,6 @@ video {
         font-size: 1.8rem;
         /* Reduce heading size */
     }
-
 }
 
 /* For small desktops */
@@ -1315,5 +1410,120 @@ video {
 
     .feature-card {
         flex: 1 1 calc(25% - 20px);
+    }
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.suggestion-item:hover {
+    background-color: #4a505d;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4a505d;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: flex;           /* Add this */
+    justify-content: center; /* Add this */
+    align-items: center;     /* Add this */
+    padding: 0;              /* Add this */
+    line-height: 1;          /* Add this */
+    overflow: hidden;        /* Add this */
+}
+
+.scroll-to-top:hover {
+    background-color: #6b7484;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+}
+
+/* Remove or comment out these styles if they exist */
+/*
+.floating-bar {
+    // ... any styles for the floating bar ...
+}
+*/
+
+/* Floating Menu Styles */
+.menu-button {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--primary-bg);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.mobile-nav ul {
+    list-style-type: none;
+    padding: 20px;
+}
+
+.mobile-nav li {
+    margin-bottom: 15px;
+}
+
+.mobile-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-nav a:hover {
+    background-color: var(--secondary-bg);
+}
+
+/* Media query for screens smaller than 786px */
+@media (max-width: 785px) {
+    .menu-button {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav.open {
+        left: 0;
+    }
+
+    .header {
+        padding-left: 60px; /* Make room for the menu button */
     }
 }

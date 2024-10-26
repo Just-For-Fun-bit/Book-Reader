@@ -10,216 +10,227 @@
 
 <body>
     <header class="header">
+        <div class="menu-button">☰</div>
         <div class="logo">Book Lovers</div>
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#featured-books">Featured Books</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#authors">Authors</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
+            </ul>
+        </nav>
         <div class="header-right">
-            <input type="text" class="search-bar" placeholder="Search books...">
-            <button class="login-btn">Login</button>
+            <div class="search-bar-container">
+                <input type="text" class="search-bar" placeholder="Search books...">
+                <button class="clear-btn" onclick="clearSearchBar()">✖</button>
+            </div>
+            <button class="search-btn">Search</button>
         </div>
     </header>
 
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#featured-books">Featured Books</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#authors">Authors</a></li>
+            <li><a href="#newsletter">Newsletter</a></li>
+        </ul>
+    </nav>
 
+    <div class="suggestions-container" id="suggestions-container"></div>
 
-    <hr class="section-divider">
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Explore a World of Endless Stories</h1>
+                <p>Discover new authors, read reviews, and join a community of book lovers.</p>
+                <button class="cta-btn">Browse Books</button>
+            </div>
+            <div class="scroll-down-arrow">&#x2193;</div>
+        </section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Explore a World of Endless Stories</h1>
-            <p>Discover new authors, read reviews, and join a community of book lovers.</p>
-            <button class="cta-btn">Browse Books</button>
-        </div>
-        <div class="scroll-down-arrow">&#x2193;</div>
-    </section>
+        <hr class="section-divider">
 
-    <hr class="section-divider">
-
-    <!-- Book Categories Section -->
-    <section class="book-categories">
-        <h2>Explore Our Categories</h2>
-        <div class="categories-container">
-            <div class="category-card">
-                <h3>Fiction</h3>
-            </div>
-            <div class="category-card">
-                <h3>Non-Fiction</h3>
-            </div>
-            <div class="category-card">
-                <h3>Science Fiction</h3>
-            </div>
-            <div class="category-card">
-                <h3>Fantasy</h3>
-            </div>
-            <div class="category-card">
-                <h3>Mystery</h3>
-            </div>
-            <div class="category-card">
-                <h3>Romance</h3>
-            </div>
-        </div>
-        <button class="see-all-btn">See All Categories</button>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- Featured Books Section -->
-    <section class="featured-books" id="featured-books">
-        <h2>Featured Books</h2>
-        <div class="books-container">
-            <div class="book-card">
-                <img src="https://rukminim2.flixcart.com/image/850/1000/kle24cw0/regionalbooks/w/0/e/bhagavad-gita-as-it-is-english-hardcover-a-c-bhaktivedanta-swami-original-imagyj6yrzpewj83.jpeg?q=90&crop=false"
-                    alt="Bhagavad Gita As It Is">
-                <h3>Bhagavad Gita As It Is</h3>
-                <p>Author: A. C. Bhaktivedanta Swami Prabhupada</p>
-                <p>Rating: ★★★★★</p>
-                <a href="#" class="action-btn">Read More</a>
-            </div>
-            <div class="book-card">
-                <img src="https://m.media-amazon.com/images/I/81y66NkOkpL._AC_UF1000,1000_QL80_.jpg"
-                    alt="Ignited Minds">
-                <h3>Ignited Minds</h3>
-                <p>Author: Dr. A.P.J. Abdul Kalam</p>
-                <p>Rating: ★★★★★</p>
-                <a href="ignited mind/ignited-mind.html" class="action-btn">Read More</a>
-            </div>
-            <div class="book-card">
-                <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781582701707/the-secret-9781582701707_hr.jpg"
-                    alt="The Secret">
-                <h3>The Secret</h3>
-                <p>Author: Rhonda Byrne</p>
-                <p>Rating: ★★★★★</p>
-                <a href="the secret/the-secret.html" class="action-btn">Read More</a>
-            </div>
-            <div class="book-card">
-                <img src="https://jamesclear.com/wp-content/uploads/2019/02/atomic-habits_gallery_hi-res_04.jpg"
-                    alt="Atomic Habits">
-                <h3>Atomic Habits</h3>
-                <p>Author: James Clear</p>
-                <p>Rating: ★★★★★</p>
-                <a href="#" class="action-btn">Read More</a>
-            </div>
-        </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- Extra Features Section -->
-    <section class="extra-features">
-        <h2>Extra Features</h2>
-        <div class="features-container">
-            <div class="feature-card">
-                <h3>Personalized Recommendations</h3>
-                <p>Receive book suggestions tailored to your reading preferences and history.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Reading Progress Tracker</h3>
-                <p>Track your reading habits and see your progress over time.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Community Discussions</h3>
-                <p>Join discussions and share insights with fellow book lovers.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Exclusive Author Q&A</h3>
-                <p>Participate in live sessions with your favorite authors and ask questions.</p>
-            </div>
-        </div>
-    </section>
-
-    <hr class="section-divider">
-
-
-    <!-- Community Reviews Section -->
-    <section class="community-reviews">
-        <h2>Community Reviews</h2>
-        <div class="reviews-container">
-            <div class="review-card">
-                <div class="review-header">
-                    <h3>Jane Doe</h3>
-                    <p>★★★★★</p>
+        <section class="book-categories" id="categories">
+            <h2>Explore Our Categories</h2>
+            <div class="categories-container">
+                <div class="category-card">
+                    <h3>Fiction</h3>
                 </div>
-                <p class="review-text">“An incredible journey through the intricacies of human emotions. A must-read for
-                    everyone!”</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <h3>John Smith</h3>
-                    <p>★★★★☆</p>
+                <div class="category-card">
+                    <h3>Non-Fiction</h3>
                 </div>
-                <p class="review-text">“Great storytelling and well-developed characters. It kept me engaged till the
-                    end!”</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <h3>Emily Johnson</h3>
-                    <p>★★★★★</p>
+                <div class="category-card">
+                    <h3>Science Fiction</h3>
                 </div>
-                <p class="review-text">“A beautiful narrative that resonates with anyone who loves a good story.”</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <h3>Michael Brown</h3>
-                    <p>★★★☆☆</p>
+                <div class="category-card">
+                    <h3>Fantasy</h3>
                 </div>
-                <p class="review-text">“An interesting concept but the execution fell flat for me.”</p>
+                <div class="category-card">
+                    <h3>Mystery</h3>
+                </div>
+                <div class="category-card">
+                    <h3>Romance</h3>
+                </div>
             </div>
-        </div>
-    </section>
+            <button class="see-all-btn">See All Categories</button>
+        </section>
 
-    <hr class="section-divider">
+        <hr class="section-divider">
 
-
-    <!-- Author Spotlight Section -->
-    <section class="author-spotlight">
-        <h2>Author Spotlight</h2>
-        <div class="author-container">
-            <div class="author-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/James_Joyce_by_Alex_Ehrenzweig%2C_1915_cropped.jpg/149px-James_Joyce_by_Alex_Ehrenzweig%2C_1915_cropped.jpg"
-                    alt="James Joyce">
-                <h3>Author Name 1</h3>
-                <p>Genre: Fiction</p>
-                <p>“Writing is the painting of the voice.”</p>
+        <section class="featured-books" id="featured-books">
+            <h2>Featured Books</h2>
+            <div class="books-container">
+                <div class="book-card">
+                    <img src="https://rukminim2.flixcart.com/image/850/1000/kle24cw0/regionalbooks/w/0/e/bhagavad-gita-as-it-is-english-hardcover-a-c-bhaktivedanta-swami-original-imagyj6yrzpewj83.jpeg?q=90&crop=false"
+                        alt="Bhagavad Gita As It Is">
+                    <h3>Bhagavad Gita As It Is</h3>
+                    <p>Author: A. C. Bhaktivedanta Swami Prabhupada</p>
+                    <p>Rating: ★★★★★</p>
+                    <a href="#" class="action-btn">Read More</a>
+                </div>
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/81y66NkOkpL._AC_UF1000,1000_QL80_.jpg"
+                        alt="Ignited Minds">
+                    <h3>Ignited Minds</h3>
+                    <p>Author: Dr. A.P.J. Abdul Kalam</p>
+                    <p>Rating: ★★★★★</p>
+                    <a href="ignited mind/ignited-mind.html" class="action-btn">Read More</a>
+                </div>
+                <div class="book-card">
+                    <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781582701707/the-secret-9781582701707_hr.jpg"
+                        alt="The Secret">
+                    <h3>The Secret</h3>
+                    <p>Author: Rhonda Byrne</p>
+                    <p>Rating: ★★★★★</p>
+                    <a href="the secret/the-secret.html" class="action-btn">Read More</a>
+                </div>
+                <div class="book-card">
+                    <img src="https://jamesclear.com/wp-content/uploads/2019/02/atomic-habits_gallery_hi-res_04.jpg"
+                        alt="Atomic Habits">
+                    <h3>Atomic Habits</h3>
+                    <p>Author: James Clear</p>
+                    <p>Rating: ★★★★★</p>
+                    <a href="#" class="action-btn">Read More</a>
+                </div>
             </div>
-            <div class="author-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Amrita_Pritam_%281919_%E2%80%93_2005%29_%2C_in_1948.jpg"
-                    alt="Amrita Pritam">
-                <h3>Author Name 2</h3>
-                <p>Genre: Non-Fiction</p>
-                <p>“The pen is mightier than the sword.”</p>
+        </section>
+
+        <hr class="section-divider">
+
+        <section class="extra-features">
+            <h2>Extra Features</h2>
+            <div class="features-container">
+                <div class="feature-card">
+                    <h3>Personalized Recommendations</h3>
+                    <p>Receive book suggestions tailored to your reading preferences and history.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Reading Progress Tracker</h3>
+                    <p>Track your reading habits and see your progress over time.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Community Discussions</h3>
+                    <p>Join discussions and share insights with fellow book lovers.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Exclusive Author Q&A</h3>
+                    <p>Participate in live sessions with your favorite authors and ask questions.</p>
+                </div>
             </div>
-            <div class="author-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/%27The_Poet_Bihari_Offers_Homage_to_Radha_and_Krishna%27%2C_attributed_to_Nainsukh%2C_ca.1760%E2%80%9365.jpg/220px-%27The_Poet_Bihari_Offers_Homage_to_Radha_and_Krishna%27%2C_attributed_to_Nainsukh%2C_ca.1760%E2%80%9365.jpg"
-                    alt="Bihari Lal Chaube">
-                <h3>Author Name 3</h3>
-                <p>Genre: Mystery</p>
-                <p>“Mystery creates wonder, and wonder is the basis of man's desire to understand.”</p>
+        </section>
+
+        <hr class="section-divider">
+
+        <section class="community-reviews" id="reviews">
+            <h2>Community Reviews</h2>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="review-header">
+                        <h3>Jane Doe</h3>
+                        <p>★★★★★</p>
+                    </div>
+                    <p class="review-text">“An incredible journey through the intricacies of human emotions. A must-read for
+                        everyone!”</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <h3>John Smith</h3>
+                        <p>★★★★☆</p>
+                    </div>
+                    <p class="review-text">“Great storytelling and well-developed characters. It kept me engaged till the
+                        end!”</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <h3>Emily Johnson</h3>
+                        <p>★★★★★</p>
+                    </div>
+                    <p class="review-text">“A beautiful narrative that resonates with anyone who loves a good story.”</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <h3>Michael Brown</h3>
+                        <p>★★★☆☆</p>
+                    </div>
+                    <p class="review-text">“An interesting concept but the execution fell flat for me.”</p>
+                </div>
             </div>
-            <div class="author-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/CK_Sonrexa_BW.jpg/220px-CK_Sonrexa_BW.jpg"
-                    alt="Chandrakiran Sonrexa">
-                <h3>Author Name 4</h3>
-                <p>Genre: Fantasy</p>
-                <p>“Fantasy is hardly an escape from reality. It's a way of understanding it.”</p>
+        </section>
+
+        <hr class="section-divider">
+
+        <section class="author-spotlight" id="authors">
+            <h2>Author Spotlight</h2>
+            <div class="author-container">
+                <div class="author-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/James_Joyce_by_Alex_Ehrenzweig%2C_1915_cropped.jpg/149px-James_Joyce_by_Alex_Ehrenzweig%2C_1915_cropped.jpg"
+                        alt="James Joyce">
+                    <h3>James Joyce</h3>
+                    <p>Genre: Fiction</p>
+                    <p>“Writing is the painting of the voice.”</p>
+                </div>
+                <div class="author-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Amrita_Pritam_%281919_%E2%80%93_2005%29_%2C_in_1948.jpg"
+                        alt="Amrita Pritam">
+                    <h3>Amrita Pritam</h3>
+                    <p>Genre: Non-Fiction</p>
+                    <p>“The pen is mightier than the sword.”</p>
+                </div>
+                <div class="author-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/%27The_Poet_Bihari_Offers_Homage_to_Radha_and_Krishna%27%2C_attributed_to_Nainsukh%2C_ca.1760%E2%80%9365.jpg/220px-%27The_Poet_Bihari_Offers_Homage_to_Radha_and_Krishna%27%2C_attributed_to_Nainsukh%2C_ca.1760%E2%80%9365.jpg"
+                        alt="Bihari Lal Chaube">
+                    <h3>Bihari Lal Chaube</h3>
+                    <p>Genre: Mystery</p>
+                    <p>“Mystery creates wonder, and wonder is the basis of man's desire to understand.”</p>
+                </div>
+                <div class="author-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/CK_Sonrexa_BW.jpg/220px-CK_Sonrexa_BW.jpg"
+                        alt="Chandrakiran Sonrexa">
+                    <h3>Chandrakiran Sonrexa</h3>
+                    <p>Genre: Fantasy</p>
+                    <p>“Fantasy is hardly an escape from reality. It's a way of understanding it.”</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <hr class="section-divider">
+        <hr class="section-divider">
 
+        <section class="newsletter" id="newsletter">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with the latest book releases, reviews, and more!</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
 
-    <!-- Subscription / Newsletter Section -->
-    <section class="newsletter">
-        <h2>Subscribe to Our Newsletter</h2>
-        <p>Stay updated with the latest book releases, reviews, and more!</p>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Enter your email address" required>
-            <button type="submit">Subscribe</button>
-        </form>
-    </section>
-
-    <hr class="section-divider">
-
-
-    <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
@@ -228,7 +239,7 @@
                 <a href="#contact">Contact</a>
                 <a href="#privacy">Privacy Policy</a>
             </div>
-            <div class="footer-socials-wrapper"> <!-- New wrapper div -->
+            <div class="footer-socials-wrapper">
                 <div class="footer-socials">
                     <a href="https://www.facebook.com/" aria-label="Facebook">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png"
@@ -252,6 +263,9 @@
         <p>&copy; 2024 Book Readers. All Rights Reserved.</p>
     </footer>
 
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
+        &#8593;
+    </button>
 
     <script src="scripts.js"></script>
 </body>
