@@ -35,22 +35,35 @@ function getClosestHeading(element) {
     return null;
 }
 
+// Function to gather book information from the page
+function gatherBookInfo() {
+    const bookCards = document.querySelectorAll('.book-card');
+    return Array.from(bookCards).map(card => {
+        const title = card.querySelector('h3').textContent.trim();
+        const id = card.id || `book-${title.toLowerCase().replace(/\s+/g, '-')}`;
+        return { text: title, link: `#${id}`, type: 'book' };
+    });
+}
+
 // Function to show suggestions
 function showSuggestions(input) {
     suggestionsContainer.innerHTML = '';
     suggestionsContainer.style.display = 'none';
 
     if (input.length > 0) {
-        const suggestions = [
-            { text: 'Home', link: '#home' },
-            { text: 'Categories', link: '#categories' },
-            { text: 'Featured Books', link: '#featured-books' },
-            { text: 'Reviews', link: '#reviews' },
-            { text: 'Authors', link: '#authors' },
-            { text: 'Newsletter', link: '#newsletter' }
+        const sections = [
+            { text: 'Home', link: '#home', type: 'section' },
+            { text: 'Categories', link: '#categories', type: 'section' },
+            { text: 'Featured Books', link: '#featured-books', type: 'section' },
+            { text: 'Reviews', link: '#reviews', type: 'section' },
+            { text: 'Authors', link: '#authors', type: 'section' },
+            { text: 'Newsletter', link: '#newsletter', type: 'section' }
         ];
 
-        const matchedSuggestions = suggestions.filter(suggestion =>
+        const books = gatherBookInfo();
+        const allSuggestions = [...sections, ...books];
+
+        const matchedSuggestions = allSuggestions.filter(suggestion =>
             suggestion.text.toLowerCase().includes(input.toLowerCase())
         );
 
@@ -59,9 +72,14 @@ function showSuggestions(input) {
                 const div = document.createElement('div');
                 div.textContent = suggestion.text;
                 div.classList.add('suggestion-item');
+                div.classList.add(suggestion.type); // Add class based on type
                 div.addEventListener('click', () => {
-                    window.location.href = suggestion.link;
-                    suggestionsContainer.style.display = 'none';
+                    const targetElement = document.querySelector(suggestion.link);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        suggestionsContainer.style.display = 'none';
+                        searchBar.value = suggestion.text; // Set search bar value to selected suggestion
+                    }
                 });
                 suggestionsContainer.appendChild(div);
             });
@@ -143,4 +161,15 @@ document.addEventListener('click', function(e) {
     if (!e.target.closest('.search-bar-container')) {
         document.getElementById('suggestions-container').style.display = 'none';
     }
+});
+
+// Add this to ensure the book cards have proper IDs
+document.addEventListener('DOMContentLoaded', function() {
+    const bookCards = document.querySelectorAll('.book-card');
+    bookCards.forEach(card => {
+        if (!card.id) {
+            const title = card.querySelector('h3').textContent.trim();
+            card.id = `book-${title.toLowerCase().replace(/\s+/g, '-')}`;
+        }
+    });
 });

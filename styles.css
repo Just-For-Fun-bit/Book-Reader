@@ -1527,3 +1527,18 @@ video {
         padding-left: 60px; /* Make room for the menu button */
     }
 }
+
+/* Add these styles to your existing CSS */
+.suggestion-item.section {
+    font-weight: bold;
+    color: #4a6d9e;
+}
+
+.suggestion-item.book {
+    color: #e0e0e0;
+}
+
+.suggestion-item:hover {
+    background-color: #4a505d;
+    color: #ffffff;
+}
